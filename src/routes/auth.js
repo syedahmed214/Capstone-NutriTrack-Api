@@ -23,7 +23,7 @@ router.get('/me', protect, getMe);
 router.patch(
   '/update-profile',
   protect,
-  updateProfileValidation,  // optional but recommended
+  updateProfileValidation,  
   updateProfile
 );
 export default router;

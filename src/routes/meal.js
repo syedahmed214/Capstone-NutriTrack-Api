@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/', protect, mealValidation, createMeal);
 router.put('/:id', protect, mealValidation, updateMeal);
 router.delete('/:id', protect, deleteMeal);
-router.get('/', getAllMeals);
+router.get('/all',protect, getAllMeals);
 router.get('/:id', getMealById);
 
 export default router;

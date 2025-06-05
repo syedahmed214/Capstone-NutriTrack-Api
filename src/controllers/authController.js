@@ -131,8 +131,6 @@ export const login = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const userId = req.user._id;
-
-    // Validate request body
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({

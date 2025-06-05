@@ -3,7 +3,7 @@ import Meal from '../models/Meal.js';
 // Create Meal
 export const createMeal = async (req, res) => {
   try {
-    const userId = req.user.id; // assuming req.user is populated via auth middleware
+    const userId = req.user.id; 
     const meal = await Meal.create({ ...req.body, userId });
     res.status(201).json({ success: true, message: 'Meal created', data: meal });
   } catch (err) {
@@ -35,9 +35,9 @@ export const deleteMeal = async (req, res) => {
   }
 };
 
-export const getAllMeals = async (req, res) => {
+export const  getAllMeals = async (req, res) => {
   try {
-    const meals = await Meal.find({ user: req.user.id }).sort({ date: -1 });
+    const meals = await Meal.find({ userId: req.user.id }).sort({ date: -1 });
     res.json({ success: true, data: meals });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Error fetching meals', error: err.message });
